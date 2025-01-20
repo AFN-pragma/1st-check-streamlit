@@ -7,12 +7,21 @@ from sklearn.metrics import accuracy_score, classification_report
 import pandas as pd
 import requests
 import io
+from io import StringIO
 
 #https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=drive_link
 url='https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=sharing'
-url='https://drive.google.com/uc?id=' + url.split('/')[-2]
 
-DATA = pd.read_csv(url)
+
+#url='https://drive.google.com/file/d/0B6GhBwm5vaB2ekdlZW5WZnppb28/view?usp=sharing'
+
+file_id = url.split('/')[-2]
+dwn_url='https://drive.google.com/uc?export=download&id=' + file_id
+url2 = requests.get(dwn_url).text
+csv_raw = StringIO(url2)
+df = pd.read_csv(csv_raw)
+print(df.head())
+
 #DATA = pd.read_csv("Expresso.csv")
 #DATA 
 #file_url = "https://drive.google.com/uc?id=1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm"
