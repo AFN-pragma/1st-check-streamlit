@@ -9,7 +9,7 @@ import requests
 import io
 
 #https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=drive_link
-url='https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=drive_link'
+url='https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=sharing'
 url='https://drive.google.com/uc?id=' + url.split('/')[-2]
 
 DATA = pd.read_csv(url)
