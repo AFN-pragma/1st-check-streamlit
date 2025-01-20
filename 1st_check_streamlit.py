@@ -32,7 +32,7 @@ print(df.head())
 #DATA = pd.read_csv(dataset, on_bad_lines='warn')
 
 #DATA = pd.read_csv('Expresso.csv', nrows=900000) #usecols=['x1', 'x2', 'x3']
-st.dataframe(DATA)
+st.dataframe(df)
 st.write("Informations sur les données :")
 buffer = io.StringIO()
 DATA.info(buf=buffer)
