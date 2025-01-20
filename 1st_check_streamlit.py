@@ -8,14 +8,19 @@ import pandas as pd
 import requests
 import io
 
+#https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=drive_link
+url='https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=drive_link'
+url='https://drive.google.com/uc?id=' + url.split('/')[-2]
+
+DATA = pd.read_csv(url)
 #DATA = pd.read_csv("Expresso.csv")
 #DATA 
-file_url = "https://drive.google.com/uc?id=1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm"
-response = requests.get(file_url)
-dataset = io.StringIO(response.text)
+#file_url = "https://drive.google.com/uc?id=1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm"
+#response = requests.get(file_url)
+#dataset = io.StringIO(response.text)
 
 # Lire le CSV dans un DataFrame
-DATA = pd.read_csv(dataset, on_bad_lines='warn')
+#DATA = pd.read_csv(dataset, on_bad_lines='warn')
 
 #DATA = pd.read_csv('Expresso.csv', nrows=900000) #usecols=['x1', 'x2', 'x3']
 st.dataframe(DATA)
