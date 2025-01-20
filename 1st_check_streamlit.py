@@ -17,7 +17,7 @@ dataset = io.StringIO(response.text)
 # Lire le CSV dans un DataFrame
 DATA = pd.read_csv(dataset, on_bad_lines='warn')
 
-DATA = pd.read_csv('Expresso.csv', nrows=900000) #usecols=['x1', 'x2', 'x3']
+#DATA = pd.read_csv('Expresso.csv', nrows=900000) #usecols=['x1', 'x2', 'x3']
 st.dataframe(DATA)
 st.write("Informations sur les données :")
 buffer = io.StringIO()
