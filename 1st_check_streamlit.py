@@ -9,7 +9,7 @@ import requests
 import io
 from io import StringIO
 
-#https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=drive_link
+url = "https://drive.google.com/file/d/1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm/view?usp=drive_link"
 
 DATA = pd.read_csv('https://drive.usercontent.google.com/download?id=1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]))
 
