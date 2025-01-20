@@ -10,7 +10,7 @@ import io
 
 #DATA = pd.read_csv("Expresso.csv")
 #DATA 
-file_url = "https://drive.google.com/u?export=download&id=ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm"
+file_url = "https://drive.google.com/uc?id=1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm"
 response = requests.get(file_url)
 dataset = io.StringIO(response.text)
 
