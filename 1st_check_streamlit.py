@@ -5,19 +5,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 import pandas as pd
-import joblib
+import requests
 import io
 
 #DATA = pd.read_csv("Expresso.csv")
 #DATA 
-@st.cache_data
-def load_csv_data():
-    df = pd.read_csv('Expresso.csv', nrows=900000) #usecols=['x1', 'x2', 'x3']
-    st.dataframe(df)
+file_url = "https://drive.google.com/u?export=download&id=1ioUQlMK5i53ugHxlEe7gqUD4k4_gaAkm"
+response = requests.get(file_url)
+dataset = io.StringIO(response.text)
 
-DATA = load_csv_data()
+# Lire le CSV dans un DataFrame
+DATA = pd.read_csv(dataset, on_bad_lines='warn')
 
-load_csv_data()
 DATA = pd.read_csv('Expresso.csv', nrows=900000) #usecols=['x1', 'x2', 'x3']
 st.dataframe(DATA)
 st.write("Informations sur les données :")
@@ -36,7 +35,7 @@ duplicates = DATA[duplicate_mask]
 print(duplicates)
 
 data = DATA.drop_duplicates()
-data = data.fillna(0)
+data = DATA.fillna(0)
 data
 from sklearn.linear_model import LogisticRegression
 
